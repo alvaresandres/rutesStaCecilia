@@ -13,7 +13,7 @@ $("#routeFrom").change(function(){
 
         $("#revertedRute").empty()
 
-        $("#revertedRute").append('<span class="fas fa-arrow-left"></span> '+ruteReverted)
+        $("#revertedRute").append('<span class="fa fa-undo"></span> '+ruteReverted)
 
         consultRute(ruteSelected,false);
         consultRute(ruteReverted,true);

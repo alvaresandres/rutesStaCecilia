@@ -72,7 +72,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>Rutas</h2>
+          <h2>Rutas |</h2><span class="badge bg-warning">Ultima Actualización 02/02/2021</span>
 
           <div class="span6" style="text-align: center;">
            <div ><center><img src="img/icons/ruta.png"></center></div>
@@ -90,59 +90,66 @@
             </div>
           </div>
         </div>
-
+        <div class="alert alert-info" role="alert" style="text-align: center;width: auto;">
+          "<span class="fas fa-arrow-down"></span>" Indica hora de paso aprox.
+        </div>
       </div>
+
       <div class="col-md-6">
 
-        <select id="routeFrom" style="background: rgba(227, 231, 228, 1);
+       <div class="alert" style="background: #5c6bc0;">
+        <select id="routeFrom" style="
+        background: rgb(92 107 192);
         font-family: 'Open Sans', sans serif;
         border: 0;
         font-size: 16px;
         text-align: left;
         vertical-align: middle;
-        width: 100%;" class="form-control">
+        width: 100%;
+        color: antiquewhite;
+        " class="form-control">
         <option value="0">Sta Elena - Sta Cecilia - La Cruz</option>
         <option value="1">La Virgen - Sta Cecilia - La Cruz</option>
         <option value="2">El Caoba  - Sta Cecilia - La Cruz</option>
         <option value="3">Upala - Sta Cecilia - La Cruz</option>
         <option value="4">San Carlos - Sta Cecilia - La Cruz</option>
-        <option value="5" selected>Sta Cecilia - La Cruz</option>
+        <option value="5" selected="">Sta Cecilia - La Cruz</option>
         <option value="7">Sta Cecilia - San Jose</option>
       </select>
-      <br>
-      <table class="table table-dark" style="font-family: courier;font-size: 1.5em;text-align: center;color: aliceblue; box-shadow: 2px 2px 5px #999;">
-        <thead class="thead-dark" style="font-weight: bold;">
-          <tr>
-            <td class="weekDay">Lunes a Viernes</td>
-            <td class="saturDay">Sábado</td>
-            <td class="weekDay">Domingo</td>
-          </tr>
-        </thead>
-        <tbody id="content_table">
-
-        </tbody>
-      </table>
     </div>
-    <div class="col-md-6">
-      <div class="alert alert-success" role="alert" style="width: 100%;height: 46px;text-align: center;">
-        <h4 class="alert-heading" id="revertedRute"><span class="fas fa-arrow-left"></span> La Cruz - Sta Cecilia</h4>
-      </div>
+    <table class="table" style="font-family: courier;font-size: 1.5em;text-align: center;color: aliceblue; box-shadow: 2px 2px 5px #999;">
+      <thead class="thead-dark" style="font-weight: bold;">
+        <tr>
+          <td class="weekDay">Lunes a Viernes</td>
+          <td class="saturDay">Sábado</td>
+          <td class="weekDay">Domingo</td>
+        </tr>
+      </thead>
+      <tbody id="content_table">
 
-      <table class="table table-dark" style="font-family: courier;font-size: 1.5em;text-align: center;color: aliceblue; box-shadow: 2px 2px 5px #999;">
-        <thead class="thead-dark" style="font-weight: bold;">
-          <tr>
-            <td class="weekDay_revert">Lunes a Viernes</td>
-            <td class="saturDay_revert">Sábado</td>
-            <td class="weekDay_revert">Domingo</td>
-          </tr>
-        </thead>
-        <tbody id="content_table_return">
-
-        </tbody>
-      </table>
-    </div>
-    <!--<img src="img/map.png"--->
+      </tbody>
+    </table>
   </div>
+  <div class="col-md-6">
+    <div class="alert alert-success" role="alert" style="width: 100%;text-align: center;">
+      <h4 class="alert-heading" id="revertedRute"><span class="fa fa-undo"></span> La Cruz - Sta Cecilia</h4>
+    </div>
+
+    <table class="table table-dark" style="font-family: courier;font-size: 1.5em;text-align: center;color: aliceblue; box-shadow: 2px 2px 5px #999;">
+      <thead class="thead-dark" style="font-weight: bold;">
+        <tr>
+          <td class="weekDay_revert">Lunes a Viernes</td>
+          <td class="saturDay_revert">Sábado</td>
+          <td class="weekDay_revert">Domingo</td>
+        </tr>
+      </thead>
+      <tbody id="content_table_return">
+
+      </tbody>
+    </table>
+  </div>
+  <!--<img src="img/map.png"--->
+</div>
 </div>
 </section>
 
@@ -161,7 +168,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white" ><small class="alert alert-warning">Made with ❤️ by <a href="mailto:alvares.andres54@gmail.com" style="color: black">Andres Cano</a> 2021</small></p>
+      <p class="m-0 text-center text-white" ><small class="alert alert-warning">Made with ❤️ by <a href="mailto:alvares.andres54@gmail.com" style="color: white">Andres Cano</a> 2021</small></p>
     </div>
     <!-- /.container -->
   </footer>

@@ -11,14 +11,15 @@
 
 
 .weekDay_revert{
-    background: #f17e758c;
+    background: #79a985;
 }
 .saturDay_revert{
-    background: #da4b408c;
+    background: #449859;
 }
 
 .alert-warning {
-    color: #856404;
-    background-color: #ffc107;
+       color: #f8f9fa;
+    background-color: rgb(0 123 255);
     border-color: #ffeeba;
+    font-family: cursive;
 }
