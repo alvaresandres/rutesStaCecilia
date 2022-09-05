@@ -1,0 +1,49 @@
+/*
+   https://getemoji.com/
+   https://mdbootstrap.com/docs/standard/content-styles/icons/
+*/
+.weekDay{
+    /*background: #5c6bc0;*/
+    background: #79a985;
+}
+.saturDay{
+    /*background: #3f51b5;*/
+    background: #449859;
+}
+
+.iconTime{
+    width: 32px;
+}
+
+
+.weekDay_revert{
+    background: #79a985;
+}
+.saturDay_revert{
+    background: #449859;
+}
+
+.alert-warning {
+       color: #f8f9fa;
+    background-color: rgb(0 123 255);
+    border-color: #ffeeba;
+    font-family: cursive;
+}
+
+#map { height: 400px; }
+
+#table_routes { 
+    height: 400px;
+    overflow: auto;
+ }
+
+#routeFrom{
+    background: #a1b81e;
+      font-family: 'Open Sans', sans serif;
+      border: 0;
+      font-size: 16px;
+      text-align: left;
+      vertical-align: middle;
+      width: 100%;
+      color: antiquewhite;
+}

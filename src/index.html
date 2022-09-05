@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Buses Santa Cecilia</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+  <link rel="shortcut icon" href="img/icons/bus.png">
+  <link href="css/custom_style.css" rel="stylesheet">
+  <!--<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"> <!-- <img src="img/icons/bus.png" style="width: 24px"> -->🚌 Buses
+        Santa Cecilia</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Rutas</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- <header class="bg-primary bg-warning text-white"> -->
+  <header class="bg-warning text-white" style="background-color: #a1b81e!important;">
+    <div class="container text-center">
+      <h1>Horarios de buses Santa Cecilia</h1>
+      <p class="lead">El Caoba | <b>La Virgen</b> | La Cruz | <b>San José</b> | Upala | <b>San Carlos</b> | Sta Elena</p>
+    </div>
+  </header>
+
+  <hr class="my-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+        <div class="jumbotron">
+          <h1 class="display-4">¡Hola!</h1>
+          <p class="lead">Consulte los horarios de buses desde y hacia el distrito de Santa Cecilia, ubicado en el cantón de La Cruz, Guanacaste.</p>
+          
+        </div>
+      </div>
+      </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="alert" style="background: #a1b81e;">
+            <select id="routeFrom" class="form-control">
+              <option value="0">Sta Elena - Sta Cecilia - La Cruz</option>
+              <option value="1">La Virgen - Sta Cecilia - La Cruz</option>
+              <option value="2">El Caoba - Sta Cecilia - La Cruz</option>
+              <option value="3">Upala - Sta Cecilia - La Cruz</option>
+              <option value="4">San Carlos - Sta Cecilia - La Cruz</option>
+              <option value="5" selected="">Sta Cecilia - La Cruz</option>
+              <option value="7">Sta Cecilia - San Jose</option>
+              <option value="8">Todos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="row">
+      <div class="col-sm">
+
+        <div class="card" id="table_routes" >
+          <div class="card-header">
+            <b>Horarios Lunes a viernessss</b>
+          </div>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Desde</th>
+                <th scope="col">Salida  <i class="fas fa-plane-departure"></i></th>
+                <th scope="col">Llegada <i class="fas fa-plane-arrival"></i></th>
+                <th scope="col">Destino</th>
+              </tr>
+            </thead>
+            <tbody id="listSchedule">
+            </tbody>
+          </table>
+          <div class="card-header">
+            <b>Horarios Sábados</b>
+          </div>
+          <ul id="listScheduleSab" class="list-group list-group-flush text-center">
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card">
+          <div class="card-body">
+            <!--<div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>-->
+            <!--<button id="btn">Set</button>-->
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Powered by <a href="mailto:alvares.andres54@gmail.com" style="color: white">Jockssan Alvarez 👨‍💻</a> | 2021.</small></p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+  <script src="dbConecction.js"></script>
+  <script src="js/custom_event.js"></script>
+
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <script src="js/leatfjs_map.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+</body>
+</html>
