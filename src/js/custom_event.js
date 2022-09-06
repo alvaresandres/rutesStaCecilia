@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   consultRute("Sta Cecilia - La Cruz",false);
   //consultRute("La Cruz - Sta Cecilia",true);
+  $("#divMap").toggle("hidden");
 
 $("#routeFrom").change(function(){
 
@@ -21,6 +22,11 @@ $("#routeFrom").change(function(){
         //consultRute(ruteReverted,true);
 
  });
+
+
+ $( "#btnShowMap" ).click(function() {
+   $("#divMap").toggle("slow");
+});
 
 
 function consultRute(rute,isReverted){
