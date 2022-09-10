@@ -1,6 +1,7 @@
 /*
    https://getemoji.com/
    https://mdbootstrap.com/docs/standard/content-styles/icons/
+   https://cssgradient.io/
 */
 .weekDay{
     /*background: #5c6bc0;*/
@@ -64,7 +65,12 @@ thead {
 }*/
 
 body{
-    background: rgb(238,174,202);
-     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    /*background: rgb(238,174,202);
+     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);*/
+     background-image: url("../img/stac2.jpg");
 }
 
+     
+
+
+     
