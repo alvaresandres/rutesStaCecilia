@@ -11,6 +11,7 @@ $(document).ready(function () {
     var rutestring = ruteSelected.split('-')
 
     $("#listSchedule").empty()
+    $("#listScheduleSab").empty()
 
     //var ruteReverted = revertRute(rutestring)
 
@@ -47,70 +48,48 @@ $(document).ready(function () {
 
     var ruteComplete = "";
     var ruteCompleteSab = "";
-
+    
     for (var i in obj) {
-      if ("Todos" === ruteP) {
+      if ("Todos" === ruteP || obj[i].ruta.name === ruteP ) {
+        let nameRoute = obj[i].ruta.name
 
-        var luVi = obj[i].HO.LUN_VI
-        var sab = obj[i].HO.SAB
-        var dom = obj[i].HO.DOM
-        var nameRoute = obj[i].name
-        nameRoute = nameRoute.split(' - ')
+        var nameRouteSplited = nameRoute.split(' - ')
+        var arrayNameRoute=[];
 
-        for (var j in luVi) {
-          if (sab[j] === undefined) {
-            sab[j] = "";
-          }
-          if (dom[j] === undefined) {
-            dom[j] = "";
-          }
-          //console.log("Lun:"+luVi[j]+"SAB:"+sab[j]+"Dom:"+dom[j] )  
+        arrayNameRoute = [nameRouteSplited[0],"--",nameRouteSplited[1]]
+        if(nameRouteSplited.length>2){
+
+          arrayNameRoute = [nameRouteSplited[0],nameRouteSplited[1],nameRouteSplited[2]]
+        }        
+  
+        for (var j in obj[i].ruta.IDA) {
+          
+          var horarioSplited = (obj[i].ruta.IDA[j]).split(" ")
+          var b = toDate(horarioSplited[0],"h:m")
+          console.log(b)
+          ruteComplete = '<tr><th>' + arrayNameRoute[0] + '</th><th><span class="badge badge-pill badge-success">'
+                         + horarioSplited[0] + '</span></th><th><span class="badge badge-pill badge-secondary">'+arrayNameRoute[1]
+                         + '<br>05:00am </span></th><th><span class="badge badge-pill badge-warning">'+horarioSplited[1]+'</span></th><th>' + arrayNameRoute[2] + '</th></tr>'
           if (!isReverted) {
-
-            ruteComplete += '<tr><th>' + nameRoute[0] + '</th><th><span class="badge badge-pill badge-success">'
-              + luVi[j] + '</span></th><th><span class="badge badge-pill badge-warning">+30</span></th><th>' + nameRoute[1] + '</th></tr>'
-            //ruteCompleteSab +='<li class="list-group-item"><p class="card-text"><span class="badge badge-pill badge-success"> <i class="fas fa-plane-departure"></i> ' +sab[j]+'</span> <i class="fas fa-angle-right"></i> <span class="badge badge-pill badge-warning"> <i class="fas fa-plane-arrival"></i>7:30 am</span> </p></li>'
-
+            if(horarioSplited[2]==='LUN_VI'){
+              fillTable("listSchedule", ruteComplete)            
+            }else if(horarioSplited[2]==='SAB'){
+              fillTable("listScheduleSab", ruteComplete)            
+            }
           } else {
-            ruteComplete += '<tr><td class="weekDay_revert">' + luVi[j] + '</td><td class="saturDay_revert">' + sab[j] + '</td><td class="weekDay_revert">' + dom[j] + '</td></tr>';
+            //ruteComplete += '<tr><td class="weekDay_revert">' + luVi[j] + '</td><td class="saturDay_revert">' + sab[j] + '</td><td class="weekDay_revert">' + dom[j] + '</td></tr>';
           }
         }
       }
-      if (obj[i].name === ruteP) {
 
-        var luVi = obj[i].HO.LUN_VI
-        var sab = obj[i].HO.SAB
-        var dom = obj[i].HO.DOM
-        var nameRoute = obj[i].name
-        nameRoute = nameRoute.split(' - ')
-
-        for (var j in luVi) {
-          if (sab[j] === undefined) {
-            sab[j] = "";
-          }
-          if (dom[j] === undefined) {
-            dom[j] = "";
-          }
-          //console.log("Lun:"+luVi[j]+"SAB:"+sab[j]+"Dom:"+dom[j] )  
-          if (!isReverted) {
-
-            ruteComplete += '<tr><th>' + nameRoute[0] + '</th><th><span class="badge badge-pill badge-success">'
-              + luVi[j] + '</span></th><th><span class="badge badge-pill badge-primary">Sta Cecilia | 8:00am</span></th><th><span class="badge badge-pill badge-warning">+30</span></th><th>' + nameRoute[1] + '</th></tr>'
-            //ruteCompleteSab +='<li class="list-group-item"><p class="card-text"><span class="badge badge-pill badge-success"> <i class="fas fa-plane-departure"></i> ' +sab[j]+'</span> <i class="fas fa-angle-right"></i> <span class="badge badge-pill badge-warning"> <i class="fas fa-plane-arrival"></i>7:30 am</span> </p></li>'
-
-          } else {
-            ruteComplete += '<tr><td class="weekDay_revert">' + luVi[j] + '</td><td class="saturDay_revert">' + sab[j] + '</td><td class="weekDay_revert">' + dom[j] + '</td></tr>';
-          }
-        }
-      }
     }
 
-    if (!isReverted) {
+    /*if (!isReverted) {
       fillTable("listSchedule", ruteComplete)
       //fillTable("listScheduleSab",ruteCompleteSab) 
     } else {
       fillTable("content_table_return", ruteComplete)
-    }
+    }*/
   }
 
   function revertRute(array) {
@@ -132,11 +111,22 @@ $(document).ready(function () {
   }
 
   function fillTable(idTable, bodyTable) {
-    $("#" + idTable).toggle("hidde");
-    $("#" + idTable).empty();
+    //$("#" + idTable).toggle("hidde");
+    //$("#" + idTable).empty();
     $("#" + idTable).append(bodyTable);
-    $("#" + idTable).toggle("slow");
+    //$("#" + idTable).toggle("slow");
   }
 
+  function toDate(dStr,format) {
+    var now = new Date();
+    const timeTo= dStr.slice(0, -2)
+    if (format == "h:m") {
+       now.setHours(timeTo.substr(0,timeTo.indexOf(":")));
+       now.setMinutes(timeTo.substr(timeTo.indexOf(":")+1));
+       now.setSeconds(0);
+       return now;
+    }else 
+      return "Invalid Format";
+  }
 
 });

@@ -114,8 +114,19 @@
           <div class="card-header">
             <b>Horarios Sábados</b>
           </div>
-          <ul id="listScheduleSab" class="list-group list-group-flush text-center">
-          </ul>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Desde</th>
+                <th scope="col">Salida <i class="fas fa-plane-departure"></i></th>
+                <th scope="col">Pasa por</th>
+                <th scope="col">Llegada <i class="fas fa-plane-arrival"></i></th>
+                <th scope="col">Destino</th>
+              </tr>
+            </thead>
+            <tbody id="listScheduleSab">
+            </tbody>
+          </table>
         </div>
         <button title="Ver mapa" type="button" id="btnShowMap" class="btn btn-outline-warning btn-lg btn-block"><i
             class="fas fa-map-marked-alt"></i></button>
